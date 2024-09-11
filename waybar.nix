@@ -40,7 +40,7 @@
         };
         "memory" = {
             "interval" = 30;
-            "format" = " {}%";
+            "format" = "mem {}%";
             "max-length" = 10;
         };
         "temperature" = {
@@ -85,7 +85,7 @@
         padding: 0;
         border: 2px solid transparent;
         border-radius: 18px;
-        background-color: alpha(@base, 0.7);
+        background-color: alpha(#1c1c1c, 0.7);
     }
 
     /* Clear default GTK styling. */

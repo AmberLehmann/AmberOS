@@ -96,12 +96,9 @@
     catppuccin-gtk
     catppuccin-qt5ct
     catppuccin-kvantum
-    # numix-icon-theme-circle
-    # colloid-icon-theme
     swww
     waypaper
-    texliveFull
-    okular
+    texliveMedium
     wlogout
     qt6.qtwayland
     swappy
@@ -120,16 +117,25 @@
     libsForQt5.sddm
     kdePackages.sddm
     libreoffice-qt
-    hunspell
-    hunspellDicts.uk_UA
-    hunspellDicts.th_TH
+    # hunspell
+    # hunspellDicts.uk_UA
+    # hunspellDicts.th_TH
     adwaita-qt
     texlab
     grim
     slurp
     swappy
     font-awesome
+    zathura
   ];
+
+  # environment.variables.XDG_CONFIG_DIRS = [ "/etc/xdg" ]; # we should probably have this in NixOS by default
+  # environment.etc."xdg/mimeapps.list" = {
+  #   text = ''
+  #   [Default Applications]
+  #   mime/type=foo.desktop;
+  #   '';
+  # };
   # services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;

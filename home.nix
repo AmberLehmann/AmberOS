@@ -67,22 +67,33 @@
     };
   };
 
-  home.sessionVariables = {
+  home = {
     # EDITOR = "emacs";
     # GTK_THEME = "catppuccin-macchiato-pink-standard";
-    XCURSOR_THEME = "oreo_spark_light_pink_bordered_cursors";
-    XCURSOR_SIZE = "18";
-    HYPRCURSOR_THEME = "oreo_spark_light_pink_bordered_cursors";
-    HYPRCURSOR_SIZE = "18";
+    sessionVariables = {
+      XCURSOR_THEME = "oreo_spark_light_pink_bordered_cursors";
+      XCURSOR_SIZE = "18";
+      HYPRCURSOR_THEME = "oreo_spark_light_pink_bordered_cursors";
+      HYPRCURSOR_SIZE = "18";
+    };
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-  gtk = {
-    enable = true;
-    theme = {
-      name = "catppuccin-macchiato-pink-standard";
-      package = pkgs.catppuccin-gtk.override {
+  # Let Home Manager install and manage itself. programs.home-manager.enable = true;
+
+    xdg.mimeApps = {
+      enable = true;
+      associations.added = {
+        "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
+      };
+      defaultApplications = {
+        "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
+      };
+    };
+    gtk = {
+      enable = true;
+      theme = {
+        name = "catppuccin-macchiato-pink-standard";
+        package = pkgs.catppuccin-gtk.override {
         accents = [ "pink" ];
         size = "standard";
         variant = "macchiato";
