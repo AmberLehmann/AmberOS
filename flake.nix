@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs,... }@inputs : 
+  outputs = {self, nixpkgs, ... }@inputs: 
       let 
         system = "x84_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};

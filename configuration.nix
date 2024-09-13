@@ -1,17 +1,19 @@
- # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, pkgs, lib,  ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit inputs;
+    };
     users = {
       amber = import ./home.nix;
     };
@@ -19,7 +21,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -57,10 +59,13 @@
   users.users.amber = {
     isNormalUser = true;
     description = "amber";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.fish;
-    # packages = with pkgs; [];
   };
+
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
@@ -71,19 +76,26 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     firefox
+    qtspim
     waybar
     rofi-wayland
+    gimp-with-plugins
     kitty
     dunst
     libnotify
     networkmanagerapplet
     blueman
     git
+    vimPlugins.clangd_extensions-nvim
+    obs-studio
     stow
+    valgrind-light
+    gnumake
     killall
     lunarvim
     fish
     starship
+    zoom
     vesktop
     pokemonsay
     lsd
@@ -92,7 +104,10 @@
     lazygit
     gtk4
     gtk3
+    python3
     cmake
+    libgcc
+    gcc13
     catppuccin-gtk
     catppuccin-qt5ct
     catppuccin-kvantum
@@ -100,6 +115,7 @@
     waypaper
     texliveMedium
     wlogout
+    nixfmt-rfc-style
     qt6.qtwayland
     swappy
     glib
@@ -117,9 +133,6 @@
     libsForQt5.sddm
     kdePackages.sddm
     libreoffice-qt
-    # hunspell
-    # hunspellDicts.uk_UA
-    # hunspellDicts.th_TH
     adwaita-qt
     texlab
     grim
@@ -127,25 +140,20 @@
     swappy
     font-awesome
     zathura
+    wl-clipboard-rs
+    clang-tools
   ];
 
-  # environment.variables.XDG_CONFIG_DIRS = [ "/etc/xdg" ]; # we should probably have this in NixOS by default
-  # environment.etc."xdg/mimeapps.list" = {
-  #   text = ''
-  #   [Default Applications]
-  #   mime/type=foo.desktop;
-  #   '';
-  # };
-  # services.xserver.enable = true;
+   # services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.theme = "where_is_my_sddm_theme";
   # services.xserver.displayManager.sddm.package = pkgs.libsForQt5.sddm;
   programs.hyprland.enable = true;
   fonts.packages = with pkgs; [
-      nerdfonts
-      jetbrains-mono
-      cascadia-code
+    nerdfonts
+    jetbrains-mono
+    cascadia-code
   ];
   programs.fish.enable = true;
   programs.bash = {
@@ -159,10 +167,12 @@
   };
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = ["nix-command" "flakes"];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
-  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -201,7 +211,10 @@
   # };
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-wlr ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-wlr
+    ];
     config.common.default = "*";
   };
 
