@@ -79,6 +79,7 @@
   #  /etc/profiles/per-user/amber/etc/profile.d/hm-session-vars.sh
   imports = [
     ./waybar.nix
+    ./wlogout.nix
     ./zathura.nix
   ];
   dconf.settings = {

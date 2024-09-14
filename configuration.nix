@@ -78,12 +78,12 @@
     firefox
     qtspim
     waybar
+    ncdu
     rofi-wayland
     gimp-with-plugins
     kitty
     dunst
     libnotify
-    mars-mips
     jre8
     networkmanagerapplet
     blueman
@@ -97,7 +97,6 @@
     lunarvim
     fish
     starship
-    zoom
     vesktop
     pokemonsay
     lsd
@@ -127,7 +126,6 @@
     beauty-line-icon-theme
     oreo-cursors-plus
     tokyonight-gtk-theme
-    uwufetch
     spotify
     xdg-desktop-portal-hyprland
     catppuccin-sddm
