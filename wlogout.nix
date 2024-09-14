@@ -56,7 +56,7 @@
       @define-color wb-hvr-fg rgba(170,172,240,0.8);
       * {
           background-image: none;
-          font-size: 90px;
+          font-size: 30px;
       }
 
       window {
@@ -72,7 +72,7 @@
           background-repeat: no-repeat;
           background-position: center;
           background-size: 10%;
-          border-radius: 10px;
+          border-radius: 30px;
           box-shadow: none;
           text-shadow: none;
           animation: gradient_f 20s ease-in infinite;
@@ -86,7 +86,7 @@
       button:hover {
           background-color: @wb-hvr-bg;
           background-size: 40%;
-          border-radius: 10px; 
+          border-radius: 30px; 
           animation: gradient_f 20s ease-in infinite;
           transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682);
       }
@@ -97,18 +97,18 @@
       }
 
       button:hover#logout {
-          border-radius: 3px;
+          border-radius: 10px;
           margin : 3px 0px 3px 0px;
       }
 
       button:hover#suspend {
-          border-radius: 3px;
+          border-radius: 10px;
           margin : 3px 0px 3px 0px;
       }
 
       button:hover#shutdown {
           border-radius: 3px;
-          margin : $3px 0px 3px 0px;
+          margin : 3px 0px 3px 0px;
       }
 
       button:hover#hibernate {

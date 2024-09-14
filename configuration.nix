@@ -6,6 +6,7 @@
 }:
 
 {
+  # Home-manager 
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
@@ -78,12 +79,16 @@
     firefox
     qtspim
     waybar
+    dprint
+    bc
     ncdu
     rofi-wayland
+    neovim
     gimp-with-plugins
     kitty
     dunst
     libnotify
+    neovide
     jre8
     networkmanagerapplet
     blueman
@@ -96,24 +101,30 @@
     killall
     lunarvim
     fish
+    vimPlugins.completion-nvim
     starship
     vesktop
+    cargo
     pokemonsay
+    todo
     lsd
     cowsay
     btop
     lazygit
+    # rust
     gtk4
     gtk3
     python3
     cmake
     libgcc
     gcc13
+    rust-analyzer
     catppuccin-gtk
     catppuccin-qt5ct
     catppuccin-kvantum
     swww
     waypaper
+    vimPlugins.telescope-lsp-handlers-nvim
     texliveMedium
     wlogout
     nixfmt-rfc-style

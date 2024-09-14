@@ -77,6 +77,11 @@
   # or
   #
   #  /etc/profiles/per-user/amber/etc/profile.d/hm-session-vars.sh
+
+  #Add support for ./local/bin
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
   imports = [
     ./waybar.nix
     ./wlogout.nix
@@ -101,6 +106,24 @@
 
   # Let Home Manager install and manage itself. programs.home-manager.enable = true;
 
+  # programs.neovim = {
+  #   enable = true;
+  #   
+  #   plugins = with pkgs.vimPlugins; [
+  #     cmp_luasnip
+  #     cmp-nvim-lsp
+  #     comment-nvim
+
+  #     gruvbox-nvim
+  #     luasnip
+  #     neodev-nvim
+  #     nvim-lspconfig
+  #     telescope-fzf-native-nvim
+  #     telescope-nvim
+  #   
+  #   ];
+  #     
+  # };
   xdg.mimeApps = {
     enable = true;
     associations.added = {

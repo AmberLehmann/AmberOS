@@ -27,7 +27,7 @@
                 "active" = "";
                 "default" = "";
             };
-            "persistent-workspaces" = { "*" = 10; };
+            "persistent-workspaces" = { "*" = 5; };
         };
         "clock" = {
             "format" = "<span> </span>{:%m/%d %H:%M}";
