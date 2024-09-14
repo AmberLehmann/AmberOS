@@ -1,7 +1,7 @@
 {
   inputs,
   pkgs,
-  lib,
+  # lib,
   ...
 }:
 
@@ -111,14 +111,13 @@
     cowsay
     btop
     lazygit
-    # rust
     gtk4
     gtk3
     python3
     cmake
     libgcc
     gcc13
-    rust-analyzer
+    # rust-analyzer
     catppuccin-gtk
     catppuccin-qt5ct
     catppuccin-kvantum
@@ -211,15 +210,6 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "unstable"; # Did you read the comment?
 
-  # sound.enable = true;
-  # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-  #   jack.enable = true;
-  # };
   xdg.portal = {
     enable = true;
     extraPortals = [

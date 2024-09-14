@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  # inputs,
+  inputs,
   ...
 }:
 
@@ -77,6 +77,19 @@
   # or
   #
   #  /etc/profiles/per-user/amber/etc/profile.d/hm-session-vars.sh
+
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        vimPlugins = prev.vimPlugins // {
+          candyland-nvim = prev.vimUtils.buildVimPlugin {
+            name = "candyland";
+            src = inputs.plugin-candyland;
+          };
+        };
+      })
+    ];
+  };
   programs.neovim = 
     let
       toLua = str: "lua << EOF\n${str}\nEOF\n";
@@ -87,7 +100,7 @@
 
       extraPackages = with pkgs; [
         lua-language-server
-
+        rust-analyzer
         xclip
         # wl-clipboard
       ];
@@ -104,14 +117,8 @@
           config = toLua "require(\"Comment\").setup()";
         }
 
-      #   {
-      #     plugin = gruvbox-nvim;
-      #     config = "colorscheme gruvbox";
-      #   }
-
         neodev-nvim
 
-        nvim-cmp 
         {
           plugin = nvim-cmp;
           config = toLuaFile ./nvim/plugin/cmp.lua;
@@ -120,6 +127,12 @@
         {
           plugin = telescope-nvim;
           config = toLuaFile ./nvim/plugin/telescope.lua;
+        }
+
+        
+        {
+          plugin = candyland-nvim;
+          config = "colorscheme candyland";
         }
 
         telescope-fzf-native-nvim
@@ -148,24 +161,12 @@
 
         vim-nix
 
-      #   # {
-      #   #   plugin = vimPlugins.own-onedark-nvim;
-      #   #   config = "colorscheme onedark";
-      #   # }
       ];
 
-      # extraLuaConfig = ''
-      #   ${builtins.readFile ./nvim/options.lua}
-      # '';
+      extraLuaConfig = ''
+        ${builtins.readFile ./nvim/options.lua}
+      '';
 
-    # extraLuaConfig = ''
-    #   ${builtins.readFile ./nvim/options.lua}
-    #   ${builtins.readFile ./nvim/plugin/lsp.lua}
-    #   ${builtins.readFile ./nvim/plugin/cmp.lua}
-    #   ${builtins.readFile ./nvim/plugin/telescope.lua}
-    #   ${builtins.readFile ./nvim/plugin/treesitter.lua}
-    #   ${builtins.readFile ./nvim/plugin/other.lua}
-    # '';
   }; 
   #Add support for ./local/bin
   home.sessionPath = [

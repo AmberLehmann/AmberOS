@@ -36,10 +36,27 @@
         "type": "github"
       }
     },
+    "plugin-candyland": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726192434,
+        "narHash": "sha256-+N46D1RoGaD88kl96Tpn/YpcIiifHafoDg4s31nJQN0=",
+        "owner": "AmberLehmann",
+        "repo": "candyland.nvim",
+        "rev": "6bdc14be80fb670c85adf4c56a2c4c4c5b0ef8ce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AmberLehmann",
+        "repo": "candyland.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "plugin-candyland": "plugin-candyland"
       }
     }
   },
