@@ -83,6 +83,8 @@
     kitty
     dunst
     libnotify
+    mars-mips
+    jre8
     networkmanagerapplet
     blueman
     git
