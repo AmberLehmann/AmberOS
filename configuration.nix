@@ -101,7 +101,7 @@
     killall
     lunarvim
     fish
-    vimPlugins.completion-nvim
+    # vimPlugins.completion-nvim
     starship
     vesktop
     cargo
@@ -124,7 +124,7 @@
     catppuccin-kvantum
     swww
     waypaper
-    vimPlugins.telescope-lsp-handlers-nvim
+    # vimPlugins.telescope-lsp-handlers-nvim
     texliveMedium
     wlogout
     nixfmt-rfc-style

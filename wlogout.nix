@@ -98,27 +98,27 @@
 
       button:hover#logout {
           border-radius: 10px;
-          margin : 3px 0px 3px 0px;
+          margin : 10px 0px 10px 0px;
       }
 
       button:hover#suspend {
           border-radius: 10px;
-          margin : 3px 0px 3px 0px;
+          margin : 10px 0px 10px 0px;
       }
 
       button:hover#shutdown {
-          border-radius: 3px;
-          margin : 3px 0px 3px 0px;
+          border-radius: 10px;
+          margin : 10px 0px 10px 0px;
       }
 
       button:hover#hibernate {
-          border-radius: 3px;
-          margin : 3px 0px 3px 0px;
+          border-radius: 10px;
+          margin : 10px 0px 10px 0px;
       }
 
       button:hover#reboot {
-          border-radius: 3px;
-          margin : 3px 3px 3px 0px;
+          border-radius: 10px;
+          margin : 10px 0px 10px 0px;
       }
     '';
   };
