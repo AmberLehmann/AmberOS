@@ -99,10 +99,10 @@
           config = toLuaFile ./nvim/plugin/lsp.lua;
         }
 
-      #   {
-      #     plugin = comment-nvim;
-      #     config = toLua "require(\"Comment\").setup()";
-      #   }
+        {
+          plugin = comment-nvim;
+          config = toLua "require(\"Comment\").setup()";
+        }
 
       #   {
       #     plugin = gruvbox-nvim;
