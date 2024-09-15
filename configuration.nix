@@ -77,8 +77,11 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     firefox
+    dooit
     qtspim
     waybar
+    julia_19-bin
+    vimPlugins.julia-vim
     dprint
     bc
     ncdu
@@ -106,12 +109,12 @@
     vesktop
     cargo
     pokemonsay
-    todo
     lsd
     cowsay
     btop
     lazygit
     gtk4
+    mesa
     gtk3
     python3
     cmake
@@ -124,7 +127,7 @@
     swww
     waypaper
     # vimPlugins.telescope-lsp-handlers-nvim
-    texliveMedium
+    # texliveMedium
     wlogout
     nixfmt-rfc-style
     qt6.qtwayland
@@ -144,7 +147,7 @@
     kdePackages.sddm
     libreoffice-qt
     adwaita-qt
-    texlab
+    # texlab
     grim
     slurp
     swappy

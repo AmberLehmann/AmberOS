@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackage = with pkgs; [
+  environment.systemPackages = with pkgs; [
     biber
     texlab
-    texLiveMedium
+    texliveMedium
   ];
 }
