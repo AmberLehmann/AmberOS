@@ -39,11 +39,11 @@
     "plugin-candyland": {
       "flake": false,
       "locked": {
-        "lastModified": 1726192434,
-        "narHash": "sha256-+N46D1RoGaD88kl96Tpn/YpcIiifHafoDg4s31nJQN0=",
+        "lastModified": 1726452432,
+        "narHash": "sha256-4esqlURd+/3MgTt7k0JUx4rUniRJgAlKjnGFqIBsXBc=",
         "owner": "AmberLehmann",
         "repo": "candyland.nvim",
-        "rev": "6bdc14be80fb670c85adf4c56a2c4c4c5b0ef8ce",
+        "rev": "c5c15b267ec9536b129fb64ece512d3e3ab3a1cf",
         "type": "github"
       },
       "original": {

@@ -80,6 +80,7 @@
     dooit
     qtspim
     waybar
+    xorg.xlsclients
     julia_19-bin
     vimPlugins.julia-vim
     dprint
@@ -120,7 +121,7 @@
     cmake
     libgcc
     gcc13
-    # rust-analyzer
+    rust-analyzer
     catppuccin-gtk
     catppuccin-qt5ct
     catppuccin-kvantum

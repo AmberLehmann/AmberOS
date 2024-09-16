@@ -26,8 +26,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+local lspconfig = require('lspconfig')
+
 require('neodev').setup()
-require('lspconfig').lua_ls.setup {
+lspconfig.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 root_dir = function()
@@ -42,7 +44,14 @@ cmd = { "lua-lsp" },
     }
 }
 
-require('lspconfig').rnix.setup {
+lspconfig.rnix.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
+
+lspconfig.rust_analyzer.setup {
+  settings = {
+    ['rust_analyzer'] = {},
+  },
+}
+

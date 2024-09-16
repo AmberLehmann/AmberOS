@@ -94,59 +94,48 @@
     let
       toLua = str: "lua << EOF\n${str}\nEOF\n";
       toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-    in
-    {
+    in {
       enable = true;
 
       extraPackages = with pkgs; [
         lua-language-server
         rust-analyzer
         xclip
-        # wl-clipboard
+        wl-clipboard
       ];
 
-      plugins = with pkgs.vimPlugins; [
-
-        {
+      plugins = with pkgs.vimPlugins; [{
           plugin = nvim-lspconfig;
           config = toLuaFile ./nvim/plugin/lsp.lua;
-        }
-
-        {
+        } {
           plugin = comment-nvim;
           config = toLua "require(\"Comment\").setup()";
-        }
-
-        neodev-nvim
-
-        {
+        } {
           plugin = nvim-cmp;
           config = toLuaFile ./nvim/plugin/cmp.lua;
-        }
-
-        {
+        } {
           plugin = telescope-nvim;
           config = toLuaFile ./nvim/plugin/telescope.lua;
-        }
-
-        
-        {
+        } {
           plugin = candyland-nvim;
           config = "colorscheme candyland";
+        } {
+          plugin = which-key-nvim;
+          config = toLuaFile ./nvim/plugin/which-key.lua;
+        } {
+          plugin = vimtex;
         }
-
         telescope-fzf-native-nvim
 
+        neodev-nvim
         cmp_luasnip
         cmp-nvim-lsp
 
         luasnip
         friendly-snippets
 
-
         lualine-nvim
         nvim-web-devicons
-
         {
           plugin = (nvim-treesitter.withPlugins (p: [
             p.tree-sitter-nix
@@ -155,6 +144,7 @@
             p.tree-sitter-lua
             p.tree-sitter-python
             p.tree-sitter-json
+            p.tree-sitter-rust
           ]));
           config = toLuaFile ./nvim/plugin/treesitter.lua;
         }
@@ -166,7 +156,6 @@
       extraLuaConfig = ''
         ${builtins.readFile ./nvim/options.lua}
       '';
-
   }; 
   #Add support for ./local/bin
   home.sessionPath = [
