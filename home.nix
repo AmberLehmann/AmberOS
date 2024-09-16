@@ -100,7 +100,6 @@
         xclip
         wl-clipboard
       ];
-
       plugins = with pkgs.vimPlugins; [{
           plugin = nvim-lspconfig;
           config = toLuaFile ./nvim/plugin/lsp.lua;

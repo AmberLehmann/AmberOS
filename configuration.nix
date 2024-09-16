@@ -12,9 +12,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager = {
-    extraSpecialArgs = {
-      inherit inputs;
-    };
+    extraSpecialArgs = { inherit inputs; };
     users = {
       amber = import ./home.nix;
     };
@@ -82,6 +80,7 @@
     rofi-wayland # rofi-wayland 
     dunst # Notification daemon
     libnotify
+    lunarvim # Neovim with good defaults
     neovide # Smooth GUI for neovim, move to home-manager
     networkmanagerapplet 
     blueman
@@ -92,7 +91,6 @@
     valgrind-light
     gnumake
     killall
-    lunarvim
     # vimPlugins.completion-nvim
     starship
     vesktop
@@ -113,11 +111,11 @@
     catppuccin-gtk
     catppuccin-qt5ct
     catppuccin-kvantum
-    swww
-    waypaper
+    swww # Wallpaper daemon
+    waypaper # Wallpaper picker for wayland
     # vimPlugins.telescope-lsp-handlers-nvim
     # texliveMedium
-    wlogout
+    wlogout # move to home-manager
     nixfmt-rfc-style
     qt6.qtwayland
     swappy
@@ -127,7 +125,6 @@
     home-manager
     beauty-line-icon-theme
     oreo-cursors-plus
-    tokyonight-gtk-theme
     spotify
     xdg-desktop-portal-hyprland
     catppuccin-sddm
@@ -147,7 +144,8 @@
   ];
 
    # services.xserver.enable = true;
- programs.hyprland.enable = true;
+  programs.hyprland.enable = true;
+  
   fonts.packages = with pkgs; [
     nerdfonts
     jetbrains-mono
