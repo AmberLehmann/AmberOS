@@ -6,6 +6,14 @@
 }:
 
 {
+  # Enbable Nix Flakes
+  nix = {
+    # package = pkgs.nix;
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
   # Home Manager needs a bit of information about you and the paths it manages
   home.username = "amber";
   home.homeDirectory = "/home/amber";
@@ -144,9 +152,7 @@
           ]));
           config = toLuaFile ./nvim/plugin/treesitter.lua;
         }
-
         vim-nix
-
       ];
 
       extraLuaConfig = ''

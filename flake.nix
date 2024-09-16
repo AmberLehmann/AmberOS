@@ -9,23 +9,23 @@
     plugin-candyland.flake = false;
   };
 
-  outputs = {self, nixpkgs, ... }@inputs: 
-      let 
-        system = "x84_64-linux";
-        pkgs = nixpkgs.legacyPackages.${system};
-        lib = nixpkgs.lib;
-      in {
-        devShells.x84_64-linux.default = ( import ./shell.nix { inherit pkgs; });
-        nixosConfigurations.nixos = lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [ 
-            ./configuration.nix
-            ./display-manager.nix
-            ./gc.nix
-            ./latex.nix
-            ./sound.nix
-            ./user.nix
-          ];
-        };
+  outputs = {self, nixpkgs, ... } @ inputs: 
+    let 
+      system = "x84_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      lib = nixpkgs.lib;
+    in {
+      devShells.${system}.default = import ./shell.nix { inherit pkgs; };
+      nixosConfigurations.nixos = lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [ 
+          ./configuration.nix
+          ./display-manager.nix
+          ./gc.nix
+          ./latex.nix
+          ./sound.nix
+          ./user.nix
+        ];
       };
+    };
 }

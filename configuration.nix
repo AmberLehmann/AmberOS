@@ -68,14 +68,11 @@
     firefox # Manage js, css in home-manager
     fish # Bash alternative
     gimp-with-plugins # Image manipulation
-    jre8 # Java Runtime Env, Add to languaged
-    julia_19-bin # Add to languages
-    vimPlugins.julia-vim # Julia completetions for symbols
+    # jre8 # Java Runtime Env, Add to languages
     kitty # Terminal emulator, move to Home-manager soon
     ncdu # Disk Utility
     neovim # Add to home-manager
     vim # Have vim by default
-    qtspim # For cmsc411
     waybar # Add to home-manager
     rofi-wayland # rofi-wayland 
     dunst # Notification daemon
@@ -91,7 +88,7 @@
     valgrind-light
     gnumake
     killall
-    # vimPlugins.completion-nvim
+    vimPlugins.completion-nvim
     starship
     vesktop
     cargo
@@ -161,13 +158,7 @@
       fi
     '';
   };
-  nix = {
-    package = pkgs.nix;
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
