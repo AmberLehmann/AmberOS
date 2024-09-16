@@ -20,5 +20,8 @@ wk.add({
     -- requires toggle_term
     { "<leader>gg","<cmd>lua require 'toggle_term'.lazygit_toggle()<cr>", desc = "Lazygit"},
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
+    -- requires nvimtree
     -- { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Explorer"}
+    --requires comment.nvim
+    { "<leader>/", "<Plug>(comment_toggle_linewise_current)", desc = "Comment toggle current line" },
 })
