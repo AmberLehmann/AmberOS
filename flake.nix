@@ -15,7 +15,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       lib = nixpkgs.lib;
     in {
-      devShells.${system}.default = import ./shell.nix { inherit pkgs; };
+      devShells.x84_64-linux.default = import ./shell.nix { inherit pkgs; };
       nixosConfigurations.nixos = lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ 
