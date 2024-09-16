@@ -11,11 +11,11 @@
 
   outputs = {self, nixpkgs, ... } @ inputs: 
     let 
-      system = "x84_64-linux";
-      pkgs = nixpkgs.legacyPackages.x84_64-linux;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
       lib = nixpkgs.lib;
     in {
-      devShells.x84_64-linux.default = import ./shell.nix { inherit pkgs; };
+      devShells.${system}.default = import ./shell.nix { inherit pkgs; };
       nixosConfigurations.nixos = lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ 
