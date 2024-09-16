@@ -12,7 +12,7 @@
   outputs = {self, nixpkgs, ... } @ inputs: 
     let 
       system = "x84_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = nixpkgs.legacyPackages.x84_64-linux;
       lib = nixpkgs.lib;
     in {
       devShells.x84_64-linux.default = import ./shell.nix { inherit pkgs; };
