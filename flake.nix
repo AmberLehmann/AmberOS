@@ -20,9 +20,11 @@
           specialArgs = { inherit inputs; };
           modules = [ 
             ./configuration.nix
-            ./latex.nix
+            ./display-manager.nix
             ./gc.nix
+            ./latex.nix
             ./sound.nix
+            ./user.nix
           ];
         };
       };

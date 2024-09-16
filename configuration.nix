@@ -56,17 +56,6 @@
     layout = "us";
     variant = "";
   };
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.amber = {
-    isNormalUser = true;
-    description = "amber";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    shell = pkgs.fish;
-  };
-
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
@@ -75,26 +64,26 @@
 
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    firefox
-    dooit
-    qtspim
-    waybar
-    xorg.xlsclients
-    julia_19-bin
-    vimPlugins.julia-vim
-    dprint
-    bc
-    ncdu
-    rofi-wayland
-    neovim
-    gimp-with-plugins
-    kitty
-    dunst
+    bc # Terimal calculator
+    dooit # Tui app for todo's. Very slow, switch at some point.
+    dprint # Rust formater 
+    firefox # Manage js, css in home-manager
+    fish # Bash alternative
+    gimp-with-plugins # Image manipulation
+    jre8 # Java Runtime Env, Add to languaged
+    julia_19-bin # Add to languages
+    vimPlugins.julia-vim # Julia completetions for symbols
+    kitty # Terminal emulator, move to Home-manager soon
+    ncdu # Disk Utility
+    neovim # Add to home-manager
+    vim # Have vim by default
+    qtspim # For cmsc411
+    waybar # Add to home-manager
+    rofi-wayland # rofi-wayland 
+    dunst # Notification daemon
     libnotify
-    neovide
-    jre8
-    networkmanagerapplet
+    neovide # Smooth GUI for neovim, move to home-manager
+    networkmanagerapplet 
     blueman
     git
     vimPlugins.clangd_extensions-nvim
@@ -104,7 +93,6 @@
     gnumake
     killall
     lunarvim
-    fish
     # vimPlugins.completion-nvim
     starship
     vesktop
@@ -159,11 +147,7 @@
   ];
 
    # services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.theme = "where_is_my_sddm_theme";
-  # services.xserver.displayManager.sddm.package = pkgs.libsForQt5.sddm;
-  programs.hyprland.enable = true;
+ programs.hyprland.enable = true;
   fonts.packages = with pkgs; [
     nerdfonts
     jetbrains-mono

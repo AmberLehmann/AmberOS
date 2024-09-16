@@ -6,13 +6,10 @@
 }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  # Home Manager needs a bit of information about you and the paths it manages
   home.username = "amber";
   home.homeDirectory = "/home/amber";
-
   home.stateVersion = "24.05"; # Please read the comment before changing.
-
   home.packages = with pkgs; [
     (catppuccin-kvantum.override {
       accent = "Pink";
@@ -83,7 +80,7 @@
       (final: prev: {
         vimPlugins = prev.vimPlugins // {
           candyland-nvim = prev.vimUtils.buildVimPlugin {
-            name = "candyland";
+            name = "candyland"; # package in nix
             src = inputs.plugin-candyland;
           };
         };
@@ -185,16 +182,6 @@
 
   # Let Home Manager install and manage itself. programs.home-manager.enable = true;
 
-
-  xdg.mimeApps = {
-    enable = true;
-    associations.added = {
-      "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
-    };
-    defaultApplications = {
-      "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
-    };
-  };
   gtk = {
     enable = true;
     theme = {
@@ -221,6 +208,16 @@
     platformTheme.name = "gtk2";
     style.name = "adwaita-dark";
     style.package = pkgs.adwaita-qt;
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
+    };
+    defaultApplications = {
+      "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
+    };
   };
 
   xdg.configFile = {
