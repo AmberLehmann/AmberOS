@@ -127,10 +127,13 @@
           plugin = which-key-nvim;
           config = toLuaFile ./nvim/plugin/which-key.lua;
         } {
+          plugin = toggleterm-nvim;
+          config = toLuaFile ./nvim/plugin/terminal.lua;
+        } { 
           plugin = vimtex;
         }
         telescope-fzf-native-nvim
-
+        # nixfmt-rfc-style
         neodev-nvim
         cmp_luasnip
         cmp-nvim-lsp

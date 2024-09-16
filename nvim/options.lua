@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.leader = ' '
 
-vim.keymap.set("n", "<leader>a", function() print "hi" end)
+-- vim.keymap.set("n", "<leader>", function() print "hi" end)
 
 vim.o.clipboard = 'unnamedplus'
 
@@ -24,7 +24,7 @@ vim.o.mouse = 'a'
 vim.g.transparent_window = true
 
 if vim.g.neovide then
-    -- Put anything you want to happen only in Neovide here
+  -- Put anything you want to happen only in Neovide here
   -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
   -- vim.g.neovide_transparency = 0.0
   -- vim.g.transparency = 0.9

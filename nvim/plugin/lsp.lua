@@ -45,8 +45,8 @@ cmd = { "lua-lsp" },
 }
 
 lspconfig.rnix.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 lspconfig.rust_analyzer.setup {

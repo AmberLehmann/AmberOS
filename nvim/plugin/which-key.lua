@@ -1,3 +1,10 @@
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+    function _lazygit_toggle()
+      lazygit:toggle()
+    end
+
+
 local wk = require("which-key")
 wk.add({
   { "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
@@ -18,7 +25,8 @@ wk.add({
     { "<leader>w", "<cmd>w<cr>", desc = "Write" },
     { "<leader>c", "<cmd>BufferKill<CR>", desc = "Close Buffer" },
     -- requires toggle_term
-    { "<leader>gg","<cmd>lua require 'toggle_term'.lazygit_toggle()<cr>", desc = "Lazygit"},
+
+    { "<leader>gg","<cmd>lua _lazygit_toggle()<CR>", desc = "Lazygit"},
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
     -- requires nvimtree
     -- { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Explorer"}
