@@ -62,6 +62,9 @@
 
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    qtspim # For cmsc411
+    julia_19-bin # For cmsc460
+    vimPlugins.julia-vim # For cmsc460
     bc # Terimal calculator
     dooit # Tui app for todo's. Very slow, switch at some point.
     dprint # Rust formater 
