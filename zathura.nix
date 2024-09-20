@@ -9,8 +9,9 @@
       recolor = true;
       recolor-lightcolor = "#1C1C25";
       recolor-darkcolor = "#FFFFFF";
-      highlight-color = "#FF9AEF";
-      highlight-active-color = "#FF8994";
+      highlight-color = "rgba(255, 154, 239, 0.4)";
+      highlight-active-color = "rgba(255, 137, 148, 0.5)";
+      scroll-step = 80;
     };
   };
 }
