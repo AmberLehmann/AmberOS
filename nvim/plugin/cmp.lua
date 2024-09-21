@@ -42,5 +42,15 @@ cmp.setup {
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'buffer'},
+        { name = 'vimtex'}
     },
 }
+
+-- cmp.setup.filetype("tex", {
+--   sources = {
+--     { name = 'vimtex' },
+--     { name = 'buffer' },
+--     -- other sources
+--   },
+-- })

@@ -32,36 +32,41 @@ if vim.g.neovide then
 
 end
 
-local generic_opts_any = { noremap = true, silent = true }
+vim.g.vimtex_view_method = "zathura"
+vim.g.vimtex_view_general_viewer = 'zathura'
+vim.g.vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'
 
-local generic_opts = {
-  insert_mode = generic_opts_any,
-  normal_mode = generic_opts_any,
-  visual_mode = generic_opts_any,
-  visual_block_mode = generic_opts_any,
-  command_mode = generic_opts_any,
-  operator_pending_mode = generic_opts_any,
-  term_mode = { silent = true },
-}
 
-local mode_adapters = {
-  insert_mode = "i",
-  normal_mode = "n",
-  term_mode = "t",
-  visual_mode = "v",
-  visual_block_mode = "x",
-  command_mode = "c",
-  operator_pending_mode = "o",
-}
+-- local generic_opts_any = { noremap = true, silent = true }
 
----@class Keys
----@field insert_mode table
----@field normal_mode table
----@field terminal_mode table
----@field visual_mode table
----@field visual_block_mode table
----@field command_mode table
----@field operator_pending_mode table
+-- local generic_opts = {
+--   insert_mode = generic_opts_any,
+--   normal_mode = generic_opts_any,
+--   visual_mode = generic_opts_any,
+--   visual_block_mode = generic_opts_any,
+--   command_mode = generic_opts_any,
+--   operator_pending_mode = generic_opts_any,
+--   term_mode = { silent = true },
+-- }
+
+-- local mode_adapters = {
+--   insert_mode = "i",
+--   normal_mode = "n",
+--   term_mode = "t",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   command_mode = "c",
+--   operator_pending_mode = "o",
+-- }
+
+-- ---@class Keys
+-- ---@field insert_mode table
+-- ---@field normal_mode table
+-- ---@field terminal_mode table
+-- ---@field visual_mode table
+-- ---@field visual_block_mode table
+-- ---@field command_mode table
+-- ---@field operator_pending_mode table
 
 local defaults = {
   insert_mode = {
