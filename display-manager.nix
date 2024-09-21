@@ -9,9 +9,9 @@
   environment.systemPackages = [(
     pkgs.catppuccin-sddm.override {
     flavor = "mocha";
-    # font  = "Noto Sans";
-    # fontSize = "9";
-    # background = "${./wallpaper.png}";
+    font  = "Noto Sans";
+    fontSize = "9";
+    background = "${./wallpapers/nix-black-4k.png}";
     loginBackground = true;
     }
   )];
