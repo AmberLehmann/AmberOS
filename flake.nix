@@ -19,9 +19,9 @@
       nixosConfigurations.nixos = lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ 
-          ./configuration.nix
-          ./display-manager.nix
-          ./gc.nix
+          ./configuration.nix    # Houses home.nix
+          ./display-manager.nix  
+          ./gc.nix               # Garbage collector
           ./latex.nix
           ./sound.nix
           ./user.nix

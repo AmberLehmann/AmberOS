@@ -4,18 +4,15 @@ require("Comment") {
     ---Add a space b/w comment and the line
     ---@type boolean
     padding = true,
-
     ---Whether cursor should stay at the
     ---same position. Only works in NORMAL
     ---mode mappings
     sticky = true,
-
     ---Lines to be ignored while comment/uncomment.
     ---Could be a regex string or a function that returns a regex string.
     ---Example: Use '^$' to ignore empty lines
     ---@type string|function
     ignore = "^$",
-
     ---Whether to create basic (operator-pending) and extra mappings for NORMAL/VISUAL mode
     ---@type table
     mappings = {
@@ -26,7 +23,6 @@ require("Comment") {
       ---Includes `gco`, `gcO`, `gcA`
       extra = true,
     },
-
     ---LHS of line and block comment toggle mapping in NORMAL/VISUAL mode
     ---@type table
     toggler = {
@@ -35,7 +31,6 @@ require("Comment") {
       ---block-comment toggle
       block = "gbc",
     },
-
     ---LHS of line and block comment operator-mode mapping in NORMAL/VISUAL mode
     ---@type table
     opleader = {
@@ -44,7 +39,6 @@ require("Comment") {
       ---block-comment opfunc mapping
       block = "gb",
     },
-
     ---LHS of extra mappings
     ---@type table
     extra = {
@@ -55,7 +49,6 @@ require("Comment") {
       ---Add comment at the end of line
       eol = "gcA",
     },
-
     ---Pre-hook, called before commenting the line
     ---@type function|nil
     pre_hook = function(...)
@@ -64,7 +57,6 @@ require("Comment") {
         return ts_comment.create_pre_hook()(...)
       end
     end,
-
     ---Post-hook, called after commenting is done
     ---@type function|nil
     post_hook = nil,
