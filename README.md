@@ -6,3 +6,8 @@ my configuration.
 
 ![RUSTLINGS_CODE](/assets/alpha.png)
 
+TODO
+- Setup my Hyprland config using home-manager
+- Setup Fish config declaratively
+- Add background to waybar
+- Add icons to wlogout
