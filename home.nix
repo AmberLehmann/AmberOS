@@ -231,6 +231,7 @@
     };
     defaultApplications = {
       "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
+      "inode/directory" = [ "nemo.desktop" ];
     };
   };
 

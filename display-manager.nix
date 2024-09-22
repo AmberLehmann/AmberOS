@@ -19,7 +19,8 @@
     enable = true;
     theme = "catppuccin-mocha";
     wayland.enable = true;
-    package = pkgs.kdePackages.sddm;
+    # package = pkgs.kdePackages.sddm;
   };
+  services.xserver.displayManager.sddm.package = pkgs.libsForQt5.sddm;
 }
 
