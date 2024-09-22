@@ -137,16 +137,15 @@
         plugin = toggleterm-nvim;
         config = toLuaFile ./nvim/plugin/terminal.lua;
       } 
-      vimtex
-      telescope-fzf-native-nvim
-        # nixfmt-rfc-style
-      neodev-nvim
       cmp_luasnip
       cmp-nvim-lsp
-
-      luasnip
       friendly-snippets
-
+      neodev-nvim
+      telescope-fzf-native-nvim
+      vimtex
+        # nixfmt-rfc-style
+      colorizer
+      luasnip
       lualine-nvim
       nvim-web-devicons
       {

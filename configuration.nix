@@ -104,7 +104,7 @@
     mesa
     gtk3
     python3
-    cinnamon.nemo
+    nemo
     cmake
     libgcc
     gcc13
