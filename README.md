@@ -11,3 +11,5 @@ TODO
 - Setup Fish config declaratively
 - Add background to waybar
 - Add icons to wlogout
+- Have SDDM boot into a custom theme
+- Create a cava theme
