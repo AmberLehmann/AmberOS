@@ -82,34 +82,34 @@
     libnotify
     lunarvim # Neovim with good defaults
     neovide # Smooth GUI for neovim, move to home-manager
-    networkmanagerapplet 
-    blueman
-    git
-    vimPlugins.clangd_extensions-nvim
-    obs-studio
-    stow
-    valgrind-light
-    gnumake
-    killall
-    vimPlugins.completion-nvim
-    starship
-    vesktop
-    cargo
-    pokemonsay
-    lsd
-    cowsay
-    btop
-    lazygit
-    gtk4
-    mesa
-    gtk3
-    python3
-    nemo
-    cmake
-    libgcc
-    gcc13
-    rust-analyzer
-    catppuccin-gtk
+    networkmanagerapplet # NetworkMangager
+    blueman #Bluetooth, add to bluetooth.nix
+    git 
+    vimPlugins.clangd_extensions-nvim # add to vim plugins
+    obs-studio # recording software
+    stow #dotfile management
+    valgrind-light # for cmsc216, add to shell
+    gnumake # for cmsc216, add to shell
+    killall # command for killing processes (remove?)
+    vimPlugins.completion-nvim # add to vim plugins
+    starship # fish prompt
+    vesktop # better discord + vencord client
+    cargo # rust build tool
+    pokemonsay # Pokemon in terminal with message (remove?)
+    lsd #sylized ls
+    cowsay # dependency for pokemonsay
+    btop # better top, check system info
+    lazygit # fast git management
+    gtk4 #gtk client for themes
+    mesa # ???
+    gtk3 # gtk client for themes
+    python3 # python
+    nemo # file manager, cinomman
+    cmake # For cmsc216, add to devshell
+    libgcc # for cmsc216, add to devshell
+    gcc13 # for cmsc216, add to devshell
+    rust-analyzer # Rust lsp server
+    catppuccin-gtk # Catpuccin-gtk theme, set to pink
     catppuccin-qt5ct
     catppuccin-kvantum
     swww # Wallpaper daemon

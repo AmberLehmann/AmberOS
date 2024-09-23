@@ -187,9 +187,9 @@
     # GTK_THEME = "catppuccin-macchiato-pink-standard";
     sessionVariables = {
       XCURSOR_THEME = "oreo_spark_light_pink_bordered_cursors";
-      XCURSOR_SIZE = "18";
+      XCURSOR_SIZE = "15";
       HYPRCURSOR_THEME = "oreo_spark_light_pink_bordered_cursors";
-      HYPRCURSOR_SIZE = "18";
+      HYPRCURSOR_SIZE = "15";
     };
   };
 
