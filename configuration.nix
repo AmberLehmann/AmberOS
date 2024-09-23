@@ -131,7 +131,7 @@
     catppuccin-sddm
     unzip
     libsForQt5.sddm
-    kdePackages.sddm
+    # kdePackages.sddm
     libreoffice-qt
     adwaita-qt
     # texlab
