@@ -30,7 +30,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+  networking.enableIPv6 = false;
+  boot.kernelParams = ["ipv6.disable=1"];
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -142,6 +143,7 @@
     zathura
     wl-clipboard-rs
     clang-tools
+    hmcl
   ];
 
    # services.xserver.enable = true;
