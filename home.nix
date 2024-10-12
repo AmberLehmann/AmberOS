@@ -107,6 +107,7 @@
         rust-analyzer
         xclip
         wl-clipboard
+        ltex-ls
       ];
       plugins = with pkgs.vimPlugins; [
       {

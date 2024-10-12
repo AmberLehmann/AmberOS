@@ -52,6 +52,7 @@ lspconfig.rnix.setup {
 lspconfig.rust_analyzer.setup {
   settings = {
     ['rust_analyzer'] = {},
+    ['ltex-ls'] = {},
   },
 }
 
