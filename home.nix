@@ -108,6 +108,7 @@
         xclip
         wl-clipboard
         ltex-ls
+        typst-live
       ];
       plugins = with pkgs.vimPlugins; [
       {

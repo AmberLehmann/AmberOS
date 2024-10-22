@@ -70,6 +70,7 @@
     dooit # Tui app for todo's. Very slow, switch at some point.
     dprint # Rust formater 
     firefox # Manage js, css in home-manager
+    firefox-bin
     fish # Bash alternative
     gimp-with-plugins # Image manipulation
     # jre8 # Java Runtime Env, Add to languages
@@ -98,6 +99,7 @@
     cargo # rust build tool
     pokemonsay # Pokemon in terminal with message (remove?)
     lsd #sylized ls
+    typst 
     cowsay # dependency for pokemonsay
     btop # better top, check system info
     lazygit # fast git management
@@ -205,5 +207,6 @@
     ];
     config.common.default = "*";
   };
-
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  hardware.cpu.amd.updateMicrocode = true;
 }
