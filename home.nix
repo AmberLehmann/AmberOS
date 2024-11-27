@@ -159,7 +159,7 @@
           p.tree-sitter-python
           p.tree-sitter-json
           p.tree-sitter-rust
-          p.treesitter-grammar-typst
+          # p.treesitter-grammar-typst
         ]));
         config = toLuaFile ./nvim/plugin/treesitter.lua;
       }

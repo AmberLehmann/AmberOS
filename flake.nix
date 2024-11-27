@@ -6,10 +6,11 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     plugin-candyland.url = "github:AmberLehmann/candyland.nvim";
+    nix-ld.url = "github:Mic92/nix-ld";
     plugin-candyland.flake = false;
   };
 
-  outputs = {self, nixpkgs, ... } @ inputs: 
+  outputs = {self, nixpkgs, nix-ld, ... } @ inputs: 
     let 
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -25,6 +26,11 @@
           ./latex.nix
           ./sound.nix
           ./user.nix
+          nix-ld.nixosModules.nix-ld
+
+        # The module in this repository defines a new module under (programs.nix-ld.dev) instead of (programs.nix-ld)
+        # to not collide with the nixpkgs version.
+        { programs.nix-ld.dev.enable = true; }
         ];
       };
     };

@@ -31,7 +31,22 @@
         };
         "clock" = {
             "format" = "<span> </span>{:%m/%d %H:%M}";
-            "tooltip-format" = "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>";
+            # "tooltip-format" = "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>";
+            "calendar" = {
+              "mode"          = "year";
+              "mode-mon-col"  = 3;
+              "weeks-pos"     = "right";
+              "on-scroll"     = 1;
+              "on-click-right" = "mode";
+              "format" = {
+                "months" =     "<span color='#ffead3'><b>{}</b></span>";
+                "days" =    "<span color='#ff9aef'><b>{}</b></span>";
+                "weeks" =      "<span color='#85dff8'><b>W{}</b></span>";
+                "weekdays" =   "<span color='#f2e1d1'><b>{}</b></span>";
+                "today" =      "<span color='#ff8994'><b><u>{}</u></b></span>";
+              };
+            };
+            "tooltip-format" ="<tt>{calendar}</tt>";
         };
         "cpu"= {
             "interval" = 10;
@@ -147,21 +162,7 @@
       margin-top: 0;
       margin-bottom: 0;
       border-radius: 5px;
-      "calendar": {
-        "mode"          : "year",
-        "mode-mon-col"  : 3,
-        "weeks-pos"     : "right",
-        "on-scroll"     : 1,
-        "on-click-right": "mode",
-        "format": {
-            "months":     "<span color='#ffead3'><b>{}</b></span>",
-            "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-            "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-            "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-            "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-        }
-      },
-      "tooltip-format": "<tt>{calendar}</tt>"
+
     }
 
     #tray {

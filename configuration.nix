@@ -4,7 +4,6 @@
   # lib,
   ...
 }:
-
 {
   # Home-manager 
   imports = [
@@ -147,6 +146,9 @@
     clang-tools
     hmcl
   ];
+  services.devmon.enable = true;
+  services.gvfs.enable = true; 
+  services.udisks2.enable = true;
 
    # services.xserver.enable = true;
   programs.hyprland.enable = true;
@@ -208,5 +210,14 @@
     config.common.default = "*";
   };
   services.xserver.videoDrivers = [ "amdgpu" ];
+  
   hardware.cpu.amd.updateMicrocode = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
 }
+
+
+
