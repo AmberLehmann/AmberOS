@@ -11,11 +11,13 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager = {
+    useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs; };
     users = {
       amber = import ./home.nix;
     };
   };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -126,6 +128,7 @@
     nwg-look
     dconf
     home-manager
+    racket
     beauty-line-icon-theme
     oreo-cursors-plus
     spotify
@@ -145,7 +148,16 @@
     wl-clipboard-rs
     clang-tools
     hmcl
+    flatpak
+
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
   services.devmon.enable = true;
   services.gvfs.enable = true; 
   services.udisks2.enable = true;

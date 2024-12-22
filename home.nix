@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 
@@ -23,6 +24,7 @@
       accent = "Pink";
       variant = "Macchiato";
     })
+
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
     papirus-folders
@@ -50,6 +52,7 @@
         "UbuntuMono"
       ];
     })
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -127,10 +130,10 @@
         plugin = telescope-nvim;
         config = toLuaFile ./nvim/plugin/telescope.lua;
       } 
-      {
-        plugin = candyland-nvim;
-        config = "colorscheme candyland";
-      } 
+      # {
+      #   plugin = candyland-nvim;
+      #   config = "colorscheme candyland";
+      # } 
       {
         plugin = which-key-nvim;
         config = toLuaFile ./nvim/plugin/which-key.lua;
@@ -178,13 +181,29 @@
     ./waybar.nix
     ./wlogout.nix
     ./zathura.nix
+    inputs.spicetify-nix.homeManagerModules.default
   ];
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
   };
-
+  
+  programs.spicetify =
+   let
+     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+   in
+   {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      adblock
+      hidePodcasts
+      shuffle # shuffle+ (special characters are sanitized out of extension names)
+      popupLyrics
+    ];
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
+  };
   home = {
     # EDITOR = "emacs";
     # GTK_THEME = "catppuccin-macchiato-pink-standard";
