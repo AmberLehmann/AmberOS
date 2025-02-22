@@ -99,6 +99,7 @@
     vesktop # better discord + vencord client
     cargo # rust build tool
     pokemonsay # Pokemon in terminal with message (remove?)
+    reaper # DAW
     lsd #sylized ls
     typst 
     cowsay # dependency for pokemonsay
@@ -149,7 +150,7 @@
     clang-tools
     hmcl
     flatpak
-
+    nasm
   ];
 
   programs.steam = {
