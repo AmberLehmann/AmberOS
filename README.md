@@ -10,6 +10,7 @@ my configuration.
 If you do choose to use this config there are some things you need to consider.
 
 - Hyprland is not setup through hyprland. You need to create your own hyprland.conf
+
 TODO
 - Setup my Hyprland config using home-manager
 - Setup Fish config declaratively
