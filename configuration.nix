@@ -151,8 +151,15 @@
     hmcl
     flatpak
     nasm
+    # man-db
+    man-pages
+    openssl
+    openssl.dev
+    # man-pages-posix
+    hashcat
+    # linux-manual
   ];
-
+  documentation.man.generateCaches = true;
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

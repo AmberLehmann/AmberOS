@@ -2,10 +2,9 @@
   config,
   pkgs,
   inputs,
-  lib,
+  # lib,
   ...
 }:
-
 {
   # Enbable Nix Flakes
   nix = {
@@ -86,18 +85,19 @@
   #
   #  /etc/profiles/per-user/amber/etc/profile.d/hm-session-vars.sh
 
-  nixpkgs = {
-    overlays = [
-      (final: prev: {
-        vimPlugins = prev.vimPlugins // {
-          candyland-nvim = prev.vimUtils.buildVimPlugin {
-            name = "candyland"; # package in nix
-            src = inputs.plugin-candyland;
-          };
-        };
-      })
-    ];
-  };
+  # nixpkgs = {
+  #   overlays = [
+  #     (final: prev: {
+  #       vimPlugins = prev.vimPlugins // {
+  #         candyland-nvim = prev.vimUtils.buildVimPlugin {
+  #           name = "candyland"; # package in nix
+  #           src = inputs.plugin-candyland;
+  #         };
+  #       };
+  #     })
+  #   ];
+  # };
+  programs.fish.enable = true;
   programs.neovim = 
     let
       toLua = str: "lua << EOF\n${str}\nEOF\n";
