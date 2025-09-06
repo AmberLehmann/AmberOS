@@ -190,7 +190,8 @@
     protonplus
     where-is-my-sddm-theme
   ];
-
+  # To render icons for wlogout
+  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
   services.udev.packages = [ 
     pkgs.via
     pkgs.qmk-udev-rules
@@ -212,6 +213,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.caskaydia-cove
+    nerd-fonts.fira-mono
   ];
 
   programs.fish.enable = true;

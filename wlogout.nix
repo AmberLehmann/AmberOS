@@ -47,78 +47,56 @@
       }
     ];
     style = ''
-      @define-color bar-bg rgba(26,27,38,0);
-      @define-color main-bg rgba(26,27,38,0.8);
-      @define-color main-fg rgba(210,176,240,0.8);
-      @define-color wb-act-bg rgba(202,123,167,0.4);
-      @define-color wb-act-fg rgba(255,204,232,1);
-      @define-color wb-hvr-bg rgba(84,75,125,0.4);
-      @define-color wb-hvr-fg rgba(170,172,240,0.8);
       * {
-          background-image: none;
-          font-size: 30px;
+        background-image: none;
+        box-shadow: none;
       }
 
       window {
-          background-color: transparent;
+        background-color: rgba(30, 30, 46, 0.90);
       }
 
       button {
-          color: rgba(250, 170, 220, 0.9);
-          background-color: @main-bg;
-          outline-style: none;
-          border: none;
-          border-width: 2px;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 10%;
-          border-radius: 30px;
-          box-shadow: none;
-          text-shadow: none;
-          animation: gradient_f 20s ease-in infinite;
+        border-radius: 0;
+        border-color: #f5c2e7;
+        text-decoration-color: #cdd6f4;
+        color: #cdd6f4;
+        background-color: #181825;
+        border-style: solid;
+        border-width: 1px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25%;
       }
 
-      button:focus {
-          background-color: @wb-act-bg;
-          background-size: 30%;
+      button:focus, button:active, button:hover {
+        /* 20% Overlay 2, 80% mantle */
+        background-color: rgb(48, 50, 66);
+        outline-style: none;
       }
 
-      button:hover {
-          background-color: @wb-hvr-bg;
-          background-size: 40%;
-          border-radius: 30px; 
-          animation: gradient_f 20s ease-in infinite;
-          transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682);
+      #lock {
+          background-image: url("./icons/lock.svg");
       }
 
-      button:hover#lock {
-          border-radius: 10px;
-          margin : 10px 0px 10px 10px;
+      #logout {
+          background-image: url("./icons/logout.svg");
       }
 
-      button:hover#logout {
-          border-radius: 10px;
-          margin : 10px 0px 10px 0px;
+      #suspend {
+          background-image: url("./icons/suspend.svg");
       }
 
-      button:hover#suspend {
-          border-radius: 10px;
-          margin : 10px 0px 10px 0px;
+      #hibernate {
+          background-image: url("./icons/hibernate.svg");
       }
 
-      button:hover#shutdown {
-          border-radius: 10px;
-          margin : 10px 0px 10px 0px;
+      #shutdown {
+          background-image: url("./icons/shutdown.svg");
       }
 
-      button:hover#hibernate {
-          border-radius: 10px;
-          margin : 10px 0px 10px 0px;
-      }
-
-      button:hover#reboot {
-          border-radius: 10px;
-          margin : 10px 0px 10px 0px;
+      #reboot {
+          background-image: url("./icons/reboot.svg");
       }
     '';
   };
