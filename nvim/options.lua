@@ -26,7 +26,7 @@ vim.g.transparent_window = true
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
-  vim.g.neovide_transparency = 0.8
+  vim.g.neovide_transparency = 0.9
   -- vim.g.transparency = 0.9
   vim.g.neovide_background_color = "#1C1C25"
 
