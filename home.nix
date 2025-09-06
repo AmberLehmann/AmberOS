@@ -2,7 +2,7 @@
   config,
   pkgs,
   inputs,
-  # lib,
+  lib,
   ...
 }:
 {
@@ -20,8 +20,8 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
   home.packages = with pkgs; [
     (catppuccin-kvantum.override {
-      accent = "Pink";
-      variant = "Macchiato";
+      accent = "pink";
+      variant = "macchiato";
     })
 
     libsForQt5.qtstyleplugin-kvantum
@@ -30,30 +30,25 @@
     fira-code
     fira-code-symbols
     font-awesome
-    nerdfonts
     noto-fonts
     noto-fonts-emoji
-    proggyfonts
-    (nerdfonts.override {
-      fonts = [
-        "CascadiaCode"
-        "CodeNewRoman"
-        "FantasqueSansMono"
-        "Iosevka"
-        "ShareTechMono"
-        "Hermit"
-        "JetBrainsMono"
-        "FiraCode"
-        "FiraMono"
-        "Hack"
-        "Hasklig"
-        "Ubuntu"
-        "UbuntuMono"
-      ];
-    })
+    # proggyfonts
+    nerd-fonts.caskaydia-cove
+    # nerd-fonts.code-new-roman
+        # "CodeNewRoman"
+        # "FantasqueSansMono"
+        # "Iosevka"
+        # "ShareTechMono"
+        # "Hermit"
+        # "JetBrainsMono"
+        # "FiraCode"
+        # "FiraMono"
+        # "Hack"
+        # "Hasklig"
+        # "Ubuntu"
+        # "UbuntuMono"
 
   ];
-
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -88,7 +83,7 @@
   # nixpkgs = {
   #   overlays = [
   #     (final: prev: {
-  #       vimPlugins = prev.vimPlugins // {
+  #       vimPlugins = prev.vimPlugins {
   #         candyland-nvim = prev.vimUtils.buildVimPlugin {
   #           name = "candyland"; # package in nix
   #           src = inputs.plugin-candyland;
@@ -97,7 +92,7 @@
   #     })
   #   ];
   # };
-  programs.fish.enable = true;
+  # programs.fish.enable = true;
   programs.neovim = 
     let
       toLua = str: "lua << EOF\n${str}\nEOF\n";
@@ -130,10 +125,6 @@
         plugin = telescope-nvim;
         config = toLuaFile ./nvim/plugin/telescope.lua;
       } 
-      # {
-      #   plugin = candyland-nvim;
-      #   config = "colorscheme candyland";
-      # } 
       {
         plugin = which-key-nvim;
         config = toLuaFile ./nvim/plugin/which-key.lua;
@@ -142,6 +133,14 @@
         plugin = toggleterm-nvim;
         config = toLuaFile ./nvim/plugin/terminal.lua;
       } 
+      # {
+      #   plugin = inputs.plugin-candyland;
+      #   config = "candyland";
+      # }
+      {
+        plugin = catppuccin-nvim;
+        config = "colorscheme catppuccin-mocha";
+      }
       cmp_luasnip
       cmp-nvim-lsp
       friendly-snippets
@@ -177,6 +176,8 @@
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
+
+  nixpkgs.config.allowUnfree = true;
   imports = [
     ./waybar.nix
     ./wlogout.nix
@@ -215,7 +216,8 @@
     };
   };
 
-  # Let Home Manager install and manage itself. programs.home-manager.enable = true;
+  # Let Home Manager install and manage itself. 
+  programs.home-manager.enable = true;
 
   gtk = {
     enable = true;
@@ -261,6 +263,4 @@
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
-
-
 }

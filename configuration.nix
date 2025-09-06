@@ -1,7 +1,7 @@
 {
   inputs,
   pkgs,
-  # lib,
+  lib,
   ...
 }:
 {
@@ -10,21 +10,38 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
+  
   home-manager = {
-    useGlobalPkgs = true;
+    # useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs; };
     users = {
       amber = import ./home.nix;
     };
   };
 
+  virtualisation.containers.enable = true;
+    virtualisation = {
+      podman = {
+        enable = true;
+
+        # Create a `docker` alias for podman, to use it as a drop-in replacement
+        dockerCompat = true;
+
+        # Required for containers under podman-compose to be able to talk to each other.
+        defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+   users.defaultUserShell = pkgs.fish;
+  
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # users.users.amber.extraGroups = ["networkmanager"];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  hardware.keyboard.qmk.enable = true;
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -64,7 +81,8 @@
 
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    qtspim # For cmsc411
+    basedpyright
+    pyright
     julia_19-bin # For cmsc460
     vimPlugins.julia-vim # For cmsc460
     bc # Terimal calculator
@@ -84,6 +102,7 @@
     dunst # Notification daemon
     libnotify
     lunarvim # Neovim with good defaults
+    unrar
     neovide # Smooth GUI for neovim, move to home-manager
     networkmanagerapplet # NetworkMangager
     blueman #Bluetooth, add to bluetooth.nix
@@ -101,7 +120,8 @@
     pokemonsay # Pokemon in terminal with message (remove?)
     reaper # DAW
     lsd #sylized ls
-    typst 
+    typst # markup language, alternative to latex
+    tinymist # lsp server for said language
     cowsay # dependency for pokemonsay
     btop # better top, check system info
     lazygit # fast git management
@@ -114,6 +134,7 @@
     libgcc # for cmsc216, add to devshell
     gcc13 # for cmsc216, add to devshell
     rust-analyzer # Rust lsp server
+    vimPlugins.nvim-treesitter-parsers.rust
     catppuccin-gtk # Catpuccin-gtk theme, set to pink
     catppuccin-qt5ct
     catppuccin-kvantum
@@ -137,7 +158,7 @@
     catppuccin-sddm
     unzip
     libsForQt5.sddm
-    # kdePackages.sddm
+    kdePackages.sddm
     libreoffice-qt
     adwaita-qt
     # texlab
@@ -152,12 +173,27 @@
     flatpak
     nasm
     # man-db
-    man-pages
-    openssl
-    openssl.dev
+    # man-pages
+    # openssl
+    # openssl.dev
     # man-pages-posix
     hashcat
     # linux-manual
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    docker-compose # start group of containers for dev
+    #podman-compose # start group of containers for dev
+    via
+    qmk-udev-rules
+    # python312Packages.jupyter-client
+    libsForQt5.okular
+    protonplus
+    where-is-my-sddm-theme
+  ];
+
+  services.udev.packages = [ 
+    pkgs.via
+    pkgs.qmk-udev-rules
   ];
   documentation.man.generateCaches = true;
   programs.steam = {
@@ -170,15 +206,16 @@
   services.gvfs.enable = true; 
   services.udisks2.enable = true;
 
-   # services.xserver.enable = true;
+  services.xserver.enable = true;
   programs.hyprland.enable = true;
   
   fonts.packages = with pkgs; [
-    nerdfonts
-    jetbrains-mono
-    cascadia-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.caskaydia-cove
   ];
+
   programs.fish.enable = true;
+  
   programs.bash = {
     interactiveShellInit = ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
@@ -219,7 +256,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "unstable"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
   xdg.portal = {
     enable = true;
@@ -230,12 +267,17 @@
     config.common.default = "*";
   };
   services.xserver.videoDrivers = [ "amdgpu" ];
-  
+
   hardware.cpu.amd.updateMicrocode = true;
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+      clinfo
+    ];
   };
+
 
 }
 
